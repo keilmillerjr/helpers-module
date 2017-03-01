@@ -64,9 +64,13 @@ randBool();
 // Convert 0/1 and Yes/No to Boolean
 toBool(x);
 
-// Seperate X and Y Resolutions
+// Seperate X and Y Resolutions From String
 // Example: if var = "640x480" and type = "height", splitRes will return an integer of 480
 splitRes(var, type);
+
+// Reverse X and Y Resolutions Within String
+// Example: if var = "640x480", reverseRes will return an string of "480x640"
+reverseRes(var);
 
 // Set Properties On An Object
 setProperties(target, properties);

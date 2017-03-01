@@ -31,19 +31,24 @@ function toBool(x) {
 	}
 }
 
-// Seperate X and Y Resolutions
-function splitRes(var, type) {
+// Seperate X and Y Resolutions From String
+function splitRes(var, type, separator="x") {
 	switch(type.tolower()) {
 		case "width" || "w":
-			return split(var, "x")[0].tointeger();
+			return split(var, separator)[0].tointeger();
 			break;
 		case "height" || "h":
-			return split(var, "x")[1].tointeger();
+			return split(var, separator)[1].tointeger();
 			break;
 		default:
 			try { log.send("Error passing " + var + " to splitRes function. " + type + " is not a valid type."); } catch(e) {}
 			break;
 	}
+}
+
+// Reverse X and Y Resolutions Within String
+function reverseRes(var, separator="x") {
+	return split(var, separator)[1].tointeger() + separator + split(var, separator)[0].tointeger();
 }
 
 // Set Properties On An Object
