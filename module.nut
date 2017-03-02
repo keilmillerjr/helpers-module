@@ -10,7 +10,7 @@ function randInteger(max) {
 
 // Generate a pseudo-random boolean
 function randBool() {
-	return randInteger(1) == 1 ? true : false;
+	return randInteger(1) == 1;
 }
 
 // Convert 0/1 and Yes/No to Boolean
@@ -20,10 +20,10 @@ function toBool(x) {
 			return x;
 			break;
 		case "integer":
-			return x == 1 ? true : false;
+			return x == 1;
 			break;
 		case "string":
-			return x.tolower() == "yes" ? true : false;
+			return x.tolower() == "yes";
 			break;
 		default:
 			return false;
@@ -49,6 +49,11 @@ function splitRes(var, type, separator="x") {
 // Reverse X and Y Resolutions Within String
 function reverseRes(var, separator="x") {
 	return split(var, separator)[1].tointeger() + separator + split(var, separator)[0].tointeger();
+}
+
+// Is Layout In Vertical Orientation
+function isLayoutVertical() {
+	return (fe.layout.base_rotation + fe.layout.toggle_rotation) % 4 == (1 || 3);
 }
 
 // Set Properties On An Object

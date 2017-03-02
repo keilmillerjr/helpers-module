@@ -72,6 +72,9 @@ splitRes(var, type);
 // Example: if var = "640x480", reverseRes will return an string of "480x640"
 reverseRes(var);
 
+// Is Layout In Vertical Orientation
+isLayoutVertical();
+
 // Set Properties On An Object
 setProperties(target, properties);
 ```
