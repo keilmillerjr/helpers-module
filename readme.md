@@ -58,6 +58,9 @@ local snap = fe.add_artwork("snap", -1, -1, 1, 1);
 // Percentages of A Value
 percentage(percent, value);
 
+// Generate a pseudo-random integer between 0 and max
+randInteger(max);
+
 // Generate a pseudo-random boolean
 randBool();
 
