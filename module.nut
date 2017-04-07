@@ -1,6 +1,6 @@
 // Percentages of A Value
-function percentage(percent, value) {
-	return (percent / 100.0) * value.tofloat();
+function percentage(per, val=100) {
+	return (per / 100.0) * val.tofloat();
 }
 
 // Generate a pseudo-random integer between 0 and max
@@ -54,6 +54,19 @@ function reverseRes(var, separator="x") {
 // Is Layout In Vertical Orientation
 function isLayoutVertical() {
 	return (fe.layout.base_rotation + fe.layout.toggle_rotation) % 4 == (1 || 3);
+}
+
+// Is Layout Wide
+function isWidescreen() {
+	return fe.layout.width.tofloat() / fe.layout.height.tofloat() > 4.0 / 3.0;
+}
+
+// Shade
+function shadeObject(obj, val) {
+	val = percentage(val, 1);
+	obj.red = 255*val;
+	obj.green = 255*val;
+	obj.blue = 255*val;
 }
 
 // Set Properties On An Object

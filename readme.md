@@ -78,6 +78,14 @@ reverseRes(var);
 // Is Layout In Vertical Orientation
 isLayoutVertical();
 
+// Is Widescreen
+// Warning: Attractmode calculates layout size with the screen width and height, not the window
+isWidescreen();
+
+// Shade Object
+// Example: if val = 50, object will be shaded %50
+function shadeObject(obj, val);
+
 // Set Properties On An Object
 setProperties(target, properties);
 ```
