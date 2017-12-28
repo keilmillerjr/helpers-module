@@ -75,10 +75,29 @@
 }
 
 // Set Properties On An Object
-::setProperties <- function(target, properties) {
+::setProperties <- function(object, properties) {
 	foreach(key, value in properties) {
 		try {
-			target[key] = value;
+			switch (key) {
+				case "rgb":
+					object.set_rgb(value[0], value[1], value[2]);
+					if (value.len() > 3) object.alpha = value[3];
+					break;
+				case "bg_rgb":
+					object.set_bg_rgb(value[0], value[1], value[2]);
+					if (value.len() > 3) object.bg_alpha = value[3];
+					break;
+				case "sel_rgb":
+					object.set_sel_rgb(value[0], value[1], value[2]);
+					if (value.len() > 3) object.sel_alpha = value[3];
+					break;
+				case "selbg_rgb":
+					object.set_selbg_rgb(value[0], value[1], value[2]);
+					if (value.len() > 3) object.selbg_alpha = value[3];
+					break;
+				default:
+					object[key] = value;
+			}
 		}
 		catch(e) {
 			printL("Error setting property: " + key);
@@ -95,3 +114,21 @@
 	obj.blue = 255*val; 
 }
 ::shadeObj <- shadeObject;
+
+// Match Aspect Ratio
+::matchAspect <- function(aw, ah, dimension, param, obj=null) {
+	switch (dimension) {
+		case "w":
+		case "width":
+			if (obj) obj.height = (param * ah) / aw;
+			else return (param * ah) / aw;
+			break;
+		case "h":
+		case "height":
+			if (obj) obj.width = (param * aw) / ah;
+			else return (param * aw) / ah;
+			break;
+		default:
+			printL("Error setting force aspect");
+	}
+}

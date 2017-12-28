@@ -16,87 +16,61 @@ You may need to change file paths as necessary as each platform (windows, mac, l
 
 ## Usage
 
-Functions can be called by their full or short name. Load the module within yout layout before any dependencies. All functions are global (stored in root table) so they can be called from anywhere without having to load the module again.
-
-Example:
-
-```Squirrel
-// --------------------
-// Load Helpers Module
-// --------------------
-fe.load_module("helpers");
-
-// --------------------
-// Example Using Some of The Helper Functions
-// --------------------
-
-local flw = fe.layout.width;
-local flh = fe.layout.height;
-
-// Use A Hash To Store Settings
-local settings = {
-  snap = {
-    x = 0,
-    y = 0,
-    // Set Height And Width to 50% of flw And flh
-    width = percent(50, flw),
-    height = percent(50, flh),
-  },
-}
-
-// Create Snap and Set Properties From Settings Hash
-local snap = fe.add_artwork("snap", -1, -1, 1, 1);
-  setProperties(snap, settings.snap);
-```
-
-#### Functions
+Functions can be called by their full or short name. Load the module within yout layout, plugin or module before any dependencies. All functions are global (stored in root table) so they can be called from anywhere without having to load the module again. Most functions have a short name that can be used as well as it's long name.
 
 ```Squirrel
 // Print Line
-printLine(x);
-printL(x);
+printLine(x)
+printL(x)
 
 // Percentages of A Value
-percentage(percent, val=100);
-per(percent, val=100);
+percentage(percent, val=100)
+per(percent, val=100)
 
 // Generate a pseudo-random integer between 0 and max
-randInteger(max);
-randInt(max);
+randInteger(max)
+randInt(max)
 
 // Generate a pseudo-random boolean
-randomBoolean();
-randBool();
+randomBoolean()
+randBool()
 
 // Convert 0/1 and Yes/No to Boolean
-toBoolean(x);
-toBool(x);
+toBoolean(x)
+toBool(x)
 
 // Seperate X and Y Resolutions From String
 // Example: if var = "640x480" and type = "height", splitRes will return an integer of 480
-splitResolution(var, type, separator="x");
-splitRes(var, type, separator="x");
+splitResolution(var, type, separator="x")
+splitRes(var, type, separator="x")
 
 // Reverse X and Y Resolutions Within String
 // Example: if var = "640x480", reverseRes will return an string of "480x640"
-reverseResolution(var);
-reverseRes(var);
+reverseResolution(var)
+reverseRes(var)
 
 // Is Layout In Vertical Orientation
-isLayoutVertical();
-isLayoutVert();
+isLayoutVertical()
+isLayoutVert()
 
 // Is Widescreen
 // Warning: Attractmode calculates layout size with the screen width and height, not the window
-isWidescreen();
+isWidescreen()
 
 // Set Properties On An Object
-setProperties(target, properties);
-setProps(target, properties);
+// Example:
+//   local imageConfig = { x = 10, y = 10, width = 100, height = 100, rgb = [255, 255, 255]};
+//   local image = fe.add_image("image.png");
+//   setProps(image, imageConfig);
+setProperties(target, properties)
+setProps(target, properties)
 
 // Shade Object
 // Example: if val = 50, object will be shaded %50
-function shadeObject(obj, val);
+shadeObject(obj, val)
+
+// Match Aspect Ratio
+matchAspect(aw, ah, dimension, param, obj=null)
 ```
 
 ## Notes
