@@ -16,61 +16,72 @@ You may need to change file paths as necessary as each platform (windows, mac, l
 
 ## Usage
 
-Functions can be called by their full or short name. Load the module within yout layout, plugin or module before any dependencies. All functions are global (stored in root table) so they can be called from anywhere without having to load the module again. Most functions have a short name that can be used as well as it's long name.
+Functions can be called by their full or short name. Load the module within your layout, plugin or module before any dependencies. All functions are global (stored in root table) so they can be called from anywhere without having to load the module again.
 
 ```Squirrel
-// Print Line
-printLine(x)
-printL(x)
+// PRINT FORMATTING
 
-// Percentages of A Value
-percentage(percent, val=100)
-per(percent, val=100)
+  // Print Line
+  printLine(x)
+  printL(x)
 
-// Generate a pseudo-random integer between 0 and max
-randInteger(max)
-randInt(max)
+// VALUES AND DATA TYPES
 
-// Generate a pseudo-random boolean
-randomBoolean()
-randBool()
+  // Percentages of A Value
+  percentage(percent, val=100)
+  per(percent, val=100)
 
-// Convert 0/1 and Yes/No to Boolean
-toBoolean(x)
-toBool(x)
+  // Is value within range
+	inRange(val, low, high)
 
-// Seperate X and Y Resolutions From String
-// Example: if var = "640x480" and type = "height", splitRes will return an integer of 480
-splitResolution(var, type, separator="x")
-splitRes(var, type, separator="x")
+  // Generate a pseudo-random integer between 0 and max
+  randInteger(max)
+  randInt(max)
 
-// Reverse X and Y Resolutions Within String
-// Example: if var = "640x480", reverseRes will return an string of "480x640"
-reverseResolution(var)
-reverseRes(var)
+  // Generate a pseudo-random boolean
+  randomBoolean()
+  randBool()
 
-// Is Layout In Vertical Orientation
-isLayoutVertical()
-isLayoutVert()
+  // Convert 0/1 and Yes/No to Boolean
+  toBoolean(x)
+  toBool(x)
 
-// Is Widescreen
-// Warning: Attractmode calculates layout size with the screen width and height, not the window
-isWidescreen()
+// DISPLAY FUNCTIONS
 
-// Set Properties On An Object
-// Example:
-//   local imageConfig = { x = 10, y = 10, width = 100, height = 100, rgb = [255, 255, 255]};
-//   local image = fe.add_image("image.png");
-//   setProps(image, imageConfig);
-setProperties(target, properties)
-setProps(target, properties)
+  // Seperate X and Y Resolutions From String
+  // Example: if var = "640x480" and type = "height", splitRes will return an integer of 480
+  splitResolution(var, type, separator="x")
+  splitRes(var, type, separator="x")
 
-// Shade Object
-// Example: if val = 50, object will be shaded %50
-shadeObject(obj, val)
+  // Reverse X and Y Resolutions Within String
+  // Example: if var = "640x480", reverseRes will return an string of "480x640"
+  reverseResolution(var)
+  reverseRes(var)
 
-// Match Aspect Ratio
-matchAspect(aw, ah, dimension, param, obj=null)
+  // Is Layout In Vertical Orientation
+  isLayoutVertical()
+  isLayoutVert()
+
+  // Is Widescreen
+  // Warning: Attractmode calculates layout size with the screen width and height, not the window
+  isWidescreen()
+
+// OBJECT FORMATTING
+
+  // Set Properties On An Object
+  // Example:
+  //   local imageConfig = { x = 10, y = 10, width = 100, height = 100, rgb = [255, 255, 255]};
+  //   local image = fe.add_image("image.png");
+  //   setProps(image, imageConfig);
+  setProperties(target, properties)
+  setProps(target, properties)
+
+  // Shade Object
+  // Example: if val = 50, object will be shaded %50
+  shadeObject(obj, val)
+
+  // Match Aspect Ratio
+  matchAspect(aw, ah, dimension, param, obj=null)
 ```
 
 ## Notes
