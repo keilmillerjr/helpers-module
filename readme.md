@@ -95,9 +95,8 @@ matchAspect(aw, ah, dimension, param, obj=null)
 // Resource Paths
 // --------------------
 
-// Paths of commonly used files
-resourcePaths.pixel
-paths.pixel
+// Path to single white pixel for use with creating colorized backgrounds
+pixelPath
 ```
 
 ## Notes

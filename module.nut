@@ -159,8 +159,5 @@
 // Resource Paths
 // --------------------
 
-// Paths of commonly used files
-::resourcePaths <- {
-	pixel = fe.module_dir + "pixel.png",
-}
-::paths <- resourcePaths;
+// Path to single white pixel for use with creating colorized backgrounds
+::pixelPath <- fe.module_dir + "pixel.png";
