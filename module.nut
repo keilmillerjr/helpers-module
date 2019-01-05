@@ -36,7 +36,7 @@
 }
 ::randBool <- randomBoolean;
 
-// Convert 0/1 and Yes/No to Boolean
+// Convert 0/1, Yes/No, On/Off to Boolean
 ::toBoolean <- function(x) {
 	switch(typeof x) {
 		case "bool":
@@ -46,7 +46,7 @@
 			return x == 1;
 			break;
 		case "string":
-			return x.tolower() == "yes";
+			return (x.tolower() == "yes" || x.tolower() == "on");
 			break;
 		default:
 			return false;
