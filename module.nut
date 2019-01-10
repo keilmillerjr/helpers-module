@@ -25,7 +25,12 @@
 }
 
 // Generate a pseudo-random integer between 0 and max
+
 ::randomInteger <- function(max) {
+	// seed based on the fastrand32.py module from the python library PyRandLib
+	// https://github.com/schmouk/PyRandLib/blob/master/PyRandLib/fastrand32.py
+	local seedTime = time() * 1000;
+	srand( ((seedTime & 0xff000000) >> 24) + ((seedTime & 0x00ff0000) >>  8) + ((seedTime & 0x0000ff00) <<  8) + ((seedTime & 0x000000ff) << 24)   )
 	return ((1.0 * rand() / RAND_MAX) * (max + 1)).tointeger();
 }
 ::randInt <- randomInteger
