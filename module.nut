@@ -102,7 +102,7 @@
 // --------------------
 
 // Set Properties On An Object
-::setProperties <- function(object, properties) {
+::setProperties <- function(object, properties, quiet=false) {
 	foreach(key, value in properties) {
 		try {
 			switch (key) {
@@ -126,9 +126,7 @@
 					object[key] = value;
 			}
 		}
-		catch(e) {
-			printL("Error setting property: " + key);
-		}
+		catch(e) { if (!quiet) printL("Error setting property: " + key); }
 	}
 }
 ::setProps <- setProperties;
